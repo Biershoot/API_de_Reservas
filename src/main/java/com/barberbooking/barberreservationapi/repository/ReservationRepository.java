@@ -21,4 +21,8 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
     );
 
     List<Reservation> findByDateBetween(LocalDate start, LocalDate end);
+
+    List<Reservation> findByBarberIdAndDateBetween(Long barberId, LocalDate start, LocalDate end);
+
+    List<Reservation> findByServiceIdAndDateBetween(Long serviceId, LocalDate start, LocalDate end);
 }
