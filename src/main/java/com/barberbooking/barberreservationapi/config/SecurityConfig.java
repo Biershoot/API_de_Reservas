@@ -24,6 +24,8 @@ public class SecurityConfig {
             .authorizeHttpRequests(authz -> authz
                 .requestMatchers("/auth/**").permitAll()
                 .requestMatchers("/api/reservations/**").hasAnyRole("CLIENT", "BARBER", "ADMIN")
+                .requestMatchers("/api/services/**").hasAnyRole("CLIENT", "BARBER", "ADMIN")
+                .requestMatchers("/api/barbers/**").hasAnyRole("CLIENT", "BARBER", "ADMIN")
                 .anyRequest().authenticated()
             )
             .sessionManagement(session -> session
